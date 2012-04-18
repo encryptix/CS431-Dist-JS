@@ -1,0 +1,42 @@
+<!-- Creates the server-->
+<project name="Server" default="help" basedir=".">
+	<description>
+        Compiles the Server
+    	</description>
+	
+<property name="src" location="src/"/>
+<property name="bin" location="bin/WEB-INF/classes"/>
+<property name="serverLib" location="../../../FYP/apache-tomcat-7.0.21/lib/"/>
+
+
+	<target name="help">
+<echo>==========Commands=========</echo>
+<echo>compile - Compiles source files located at "src" to "bin". These will get packaged by a "higher" script</echo>
+<echo>* cleanBin - Empties the "bin" folder.</echo>
+<echo>* These are called automatically if required</echo>
+<echo> </echo>
+<echo>serverLib - ${serverLib} </echo>
+<echo>bin - ${bin} </echo>
+<echo>src - ${src}</echo>
+	</target>
+
+	<target name="cleanBin">
+	        <echo>Server Bin</echo>
+		<delete dir="${bin}"/>
+        	<mkdir dir="${bin}"/>
+	</target>
+
+	<path id="extraClasspath">
+		<fileset dir="../../../FYP/apache-tomcat-7.0.21/lib/">
+    		<include name="mysql-connector-java-5.1.18-bin.jar"/>
+    		<include name="servlet-api.jar"/>
+		</fileset>
+	</path>
+	
+	<target name="compile" depends="cleanBin">
+		<javac srcdir="${src}" destdir="${bin}" classpathref="extraClasspath"/>
+        	<copy todir="${bin}">
+           		<fileset dir="${src}" includes="**/*.properties"/>
+        	</copy>
+	</target>
+</project>

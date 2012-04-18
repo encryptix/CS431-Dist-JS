@@ -1,0 +1,12 @@
+<project name="CS431-Dist-JS Interface" default="copy" basedir=".">
+<property name="src" location=""/>
+<property name="bin" location="../build"/>
+
+        <target name="copy">
+		<copy todir="${bin}">
+			<fileset dir="${src}">
+   	                 	<include name="**/*.jsp"/>
+        		</fileset>
+	        </copy>
+	</target>
+</project>

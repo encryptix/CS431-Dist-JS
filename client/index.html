@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="author" content="Computer Science, National University of Ireland, Maynooth" />
+<meta name="description" content="Welcome to the National University of Maynooth Website" />
+<meta name="keywords" content="NUI Maynooth, NUIM, National University of Ireland Maynooth, Maynooth CoLlege, Maynooth, Co. Kildare, Kildare, National University of Ireland at Maynooth, County, Kildare, Computer Science,Programming" />
+<meta name="robots" content="all" />
+<meta http-equiv="copyright" content="Copyright National University of Ireland, Maynooth" />
+
+<title>NUI Maynooth &gt; Department of Computer Science &gt;</title>
+
+<style type="text/css" media="screen">
+@import url(http://internal.cs.nuim.ie/global/css/main_styles.css);
+</style>
+
+<style type="text/css" media="print">
+@import "http://internal.cs.nuim.ie/global/css/print_styles.css";
+</style>
+
+<link rel="alternate stylesheet" media="screen" type="text/css" href="http://internal.cs.nuim.ie/global/css/large_styles.css" title="largetext" />
+<link rel="alternate stylesheet" media="screen" type="text/css" href="http://internal.cs.nuim.ie/global/css/low_vision.css" title="lowvision" />
+<script type="text/javascript" src="http://internal.cs.nuim.ie/global/css/styleswitcher.js"></script>
+
+<script type="text/javascript" src="http://internal.cs.nuim.ie/global/css/browser.js"></script>
+
+<style type="text/css" media="screen">
+@import url(http://internal.cs.nuim.ie/global/css/editor_styles.css);
+
+</style>
+
+<!--Addition 1-->
+<script type="text/javascript" src="distCompute.js"></script>
+</head>
+<!--Addition 2-->
+<body  onload="">
+<button type="button" onclick="getJob()">Init</button>
+<input type="button" onClick="debugPause()" value="Resume" id="pauseButton"/>
+<input type="button" onClick="setTimeoutVariable()" value="Set Debug Timeout (ms)"/>
+Limit: <input type="text" id="amount" />
+
+<div id="wrapper">
+	<div id="topsection">
+	<!-- this tag is only for the low vision version and is hidden on all other pages -->
+	<div class="hidelowvis"><div id="vistag"><h1>National University of Ireland, Maynooth</h1></div>
+	</div>
+	<!-- end of visually impaired tagline -->
+		<div id="tagline"><img src="http://internal.cs.nuim.ie/global/graphics/tagline.gif" alt="National University of Ireland, Maynooth" width="308" height="38" /></div>
+		<div class="hide"><a href="#navigation">Skip top page links and go directly to the main navigation</a></div>
+		<div id="toplinks">
+		   <p><a href="http://www.cs.nuim.ie/contact/" tabindex="14">Contact</a> |  <a href="http://www.nuim.ie/about/privacy.shtml" tabindex="15">Privacy</a> | <a href="http://www.nuim.ie/about/accessibility.shtml" tabindex="16">Accessibility</a>  | <strong>Text size:</strong> <a href="#" tabindex="17" onclick="setActiveStyleSheet('styles'); return false;" onkeypress="setActiveStyleSheet('styles'); return false;" title="Customise this site (default text size).">a</a> | <a href="#"  tabindex="18" onclick="setActiveStyleSheet('largetext'); return false;" onkeypress="setActiveStyleSheet('lstyles'); return false;"title="Customise this site (large text size).">A</a> | <a href="#" tabindex="19" onclick="setActiveStyleSheet('lowvision'); return false;" onkeypress="setActiveStyleSheet('lowviz'); return false;"title="Customise this site (low vision version).">Low Vision</a> </p>
+
+
+	  </div>
+	</div>
+	<div id="logosection">
+		<div id="logo"><a href="http://www.nuim.ie"><img src="http://internal.cs.nuim.ie/global/graphics/logo.gif" alt="NUI Maynooth Logo" width="163" height="135" border="0" /></a></div>
+		<div id="sectionimage"><img src="http://internal.cs.nuim.ie/global/graphics/research.png" alt="The Callan Building" width="585" height="135" /></div>
+	</div>
+	<div class="hide"><a href="#sectioncontentpages">Skip main navigation and go directly to page content</a></div>
+	 <!-- this code section is only for the visually impaired version and is hidden on all other pages. Only amend this portion if the main navigation or search engine URL on the site changes. Styles for this portion can be found in css/low_vision.css -->
+ <div class="hidelowvis"> <div id="visnav">
+<p><a href="http://www.cs.nuim.ie/contact/" tabindex="14">Contact</a> | <a href="http://www.nuim.ie/about/privacy.shtml" tabindex="15">Privacy</a> | <a href="http://www.nuim.ie/about/accessibility.shtml" tabindex="16">Accessibility</a> | <strong>Page Style:</strong> <a href="#" tabindex="17" onclick="setActiveStyleSheet('styles'); return false;" onkeypress="setActiveStyleSheet('styles'); return false;" title="Customise this site (default text size).">Return to Graphics Version</a> </p>
+
+ </div></div>
+ <!-- end of visual impaired navigation -->
+    <div id="breadcrumbs">
+    <p><strong>You are here:</strong>> <a href="http://www.cs.nuim.ie/">department of computer science</a> >Internal</p>
+  </div>
+	<div id="contentwrapper">
+	 <div id="contentspacer"></div>
+			
+			<div id="sectioncontentpages">
+			<!--<div class="spacer"></div>-->
+	        <div id="sectionmenu" class="alignment">
+                                  <ul class="subsitenav">
+<li class="jumpnav"><a href="http://www.cs.nuim.ie/">&lsaquo;&lsaquo; Computer Science</a></li>
+<li><a  href='http://internal.cs.nuim.ie/ ' title='Support Information'>Internal Home</a></li>
+<li><a  href='http://internal.cs.nuim.ie/modules/index.php ' title='modules'>Modules</a></li>
+<li><a  href='http://internal.cs.nuim.ie/SafetyStatement.pdf ' title='Safety Statement'>Safety Statement for Computer Science</a></li>
+<li><a  href='http://internal.cs.nuim.ie/courseinfo.php ' title='Course Co-ordinator'>Course Coordinator/Director Contact Details</a></li>
+<li><a  href='http://internal.cs.nuim.ie/plagiarism.php ' title='Plagiarism Guidelines'>Plagiarism Guidelines</a></li>
+<li><a  href='http://www.cs.nuim.ie/projects/3rdprojects.php' title='Projects'>Third  Year Projects</a></li>
+<li><a  href='http://www.cs.nuim.ie/projects/ ' title='Projects'>Fourth Year Projects</a></li>
+<li><a  href='http://www.cs.nuim.ie/projects/mscprojects.php' title='Projects'>MSc Projects</a></li>
+<li><a  href='http://internal.cs.nuim.ie/postgrads/ ' title='Postgraduate Information'>Postgraduates</a></li>
+<li><a  href='http://www.cs.nuim.ie/timetables/ ' title='Timetables'>Timetables</a></li>
+<li><a  href='http://www.cs.nuim.ie/studenthandbook/csstudenthandbook.pdf' title='Student information'>Student Handbook</a></li>
+<li><a  href='http://internal.cs.nuim.ie/StaffStudent/ ' title='Staff Student Committee'>Staff Student Committee</a></li>
+<li><a  href='http://internal.cs.nuim.ie/ ' title='Support Information'>Support Docs</a></li>
+<li><a  href='https://webmail.nuim.ie/ ' title='Webmail'>Webmail</a></li>
+<li><a  href='http://moodle.nuim.ie/ ' title='Moodle'>Moodle</a></li>
+<li><a  href='http://www.cs.nuim.ie/industrial/vacancies/ ' title='Placements'>Industrial Placements</a></li>
+</ul>
+
+
+                      </div>
+			
+<div id="sitetitle" class="alignment">
+						<h1>Department of Computer Science (Internal)</h1>
+				</div>
+				<div id="textcontent" >
+					<div id="text">
+<div id="support" style= 'float:left; width: 40%;'>
+                                   <h2>Support Documentation </h2>
+<ul>
+<li><a  href='http://internal.cs.nuim.ie/support/newwebmail.php ' title='Webmail'>Accessing Computer Science mail through webmail for postgrads</li>
+<li><a  href='http://internal.cs.nuim.ie/support/conduct.php ' title='Code of Conduct'>Code of Conduct
+ </a></li>
+<li><a  href='http://internal.cs.nuim.ie/cgi-bin/account' title='Account Retrieval'>Account Retrieval
+ </a></li>
+</ul>
+</div>
+
+
+<blockquote style= 'float:right; width: 50%;'>
+<H2>News and Events</H2>
+            <!-- HTML generated from an RSS Feed by rss2html.php, http://www.FeedForAll.com/ a NotePage, Inc. product (http://www.notepage.com/) -->  
+                    03/04/2012 <br/>
+                    <B><A href="http://www.cs.nuim.ie/intnoticeboard/notice.php?noticeid=205">A vacancy exists for a 4 year PhD in the application of spectroscopy to biological specimen.</A></B></br>
+                    <br/>
+            
+                                      </blockquote>
+
+
+<blockquote style= 'float:right; width: 50%;'>
+<H2>Available Placements</H2>
+            
+                                      </blockquote>
+
+
+
+</div>
+				  <div style="clear:both;" id="textfooter">
+				    <p>Computer Science Department , NUI Maynooth <br/>
+Tel: +353-1-708 3847 | Fax: +353-1-708 3848| Email: <a href="mailto:admin@cs.nuim.ie">admin@cs.nuim.ie</a>
+</p>
+
+				  </div>
+				
+				</div>
+			
+			</div>
+	
+	</div>
+	<div id="footer">
+<p><strong>Technical</strong> enquiries <strong>only</strong> to: <a href="mailto:webmaster@nuim.ie">webmaster@cs.nuim.ie</a> </p>
+  </div>
+
+</div>
+</body>
+</html>
+

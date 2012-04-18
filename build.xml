@@ -1,0 +1,32 @@
+<project name="Build" default="help" basedir=".">
+	<property name="server" location="server"/>
+	<property name="interface" location="interface"/>
+	<property name="client" location="client"/>
+	<property name="serverBin" location="client/bin/WEB-INF"/>
+	<property name="binProject" location="build"/>
+
+        <target name="cleanBin">
+                <delete dir="${binProject}"/>
+                <mkdir dir="${binProject}"/>
+        </target>
+
+	<target name="compileSources" depends="cleanBin">
+                <!--Create The Server-->
+                <ant antfile="${interface}/build.xml" dir="${interface}" target="copy"/>                
+                <!--Create The Interface-->
+                <ant antfile="${server}/build.xml" dir="${server}" target="compile"/>
+                <!--Create The UI-->
+                <ant antfile="${client}/build.xml" dir="${client}" target="copy"/>
+        </target>
+
+	 <target name="package" depends="compileSources">
+                <tstamp>
+                        <format property="archive.name" pattern="'build_'ddMMyyyy_HHmmss'.zip'" />
+                </tstamp>
+                <!--Create the archive-->       
+                <zip destfile="${archive.name}">
+                        <zipfileset dir="${server}/bin/WEB-INF" prefix="WEB-INF"/>
+                        <zipfileset dir="${binProject}" />
+                </zip>
+        </target>
+</project>

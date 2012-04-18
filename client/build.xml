@@ -1,0 +1,13 @@
+<project name="CS431-Dist-JS Client" default="copy" basedir=".">
+<property name="src" location=""/>
+<property name="bin" location="../build"/>
+
+        <target name="copy">
+		<copy todir="${bin}">
+			<fileset dir="${src}">
+   	                 	<include name="**/*.html"/>
+				<include name="**/*.js"/>
+        		</fileset>
+	        </copy>
+	</target>
+</project>
