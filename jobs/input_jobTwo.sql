@@ -1,5 +1,5 @@
 use concepts;
-INSERT INTO JOBS(NULL,"function countE(theString){return theString.split(/e/g).length - 1;}");
+INSERT INTO JOBS VALUES(NULL,"function countE(theString){return theString.split(/e/g).length - 1;}");
 CREATE TABLE DATA_2 (data_id int AUTO_INCREMENT, resultCount int DEFAULT 0, isAnswered TINYINT(1) DEFAULT 0, data TEXT, PRIMARY KEY(data_id));
 CREATE TABLE RESULTS_2(id int, result TEXT, PRIMARY KEY(id));
 INSERT INTO DATA_2 VALUES(NULL,0,0,"");

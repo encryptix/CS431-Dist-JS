@@ -30,7 +30,6 @@ public class Jobs {
 	public String getData(){
 		Logger.debug("{Jobs - getData}", "JobID: "+getID()+" ArraySize: "+sizeData());
 		try{
-			//return _data.remove(0).getJson();
 			Data d = _data.remove(0);
 			Logger.debug("{Jobs - getData}", "WorkID: "+d.getDataID()+" ArraySize: "+sizeData());
 			return d.getJson();

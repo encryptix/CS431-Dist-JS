@@ -1,0 +1,32 @@
+	/*
+	 * Give out a job - > give each job an id
+	 * Give each piece of work a job_id, piece_id (each job a table?)
+	 * When a piece of work is given out , timestamp it .. allow 2 minutes...
+	 * When result comes back check that it is within the 2 minutes and if so save
+	 * This should also give out another piece of work
+	 * 
+	 * 
+	 * Upon First load is when a job is selected -> WHen units of work are done, give more units
+	 * 
+	 * for units select the closest one near the top which has not been given out
+	 * 		[How do I tell the difference between one solved, and then the 2nd answer]
+	 * 
+	 * when selecting work I return the results with id
+	 * so i pick a job where the id is > than the one returned
+	 * this ensures i dont get the same job twice
+	 * 
+	 */
+
+
+String getContentFrom = request.getParameter("site");
+if(!hasContent(getContentFrom)){
+	//setup some sort code
+	out.print("Error no site specified");
+	return;
+}
+
+String actionOnServer = request.getParameter("action");
+if(!hasContent(actionOnServer)){
+	out.print("Error no action");
+	return;
+}

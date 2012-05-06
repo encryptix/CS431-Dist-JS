@@ -33,10 +33,9 @@
 <script type="text/javascript" src="distCompute.js"></script>
 </head>
 <!--Addition 2-->
-<body  onload="">
-<button type="button" onclick="getJob()">Init</button>
-<input type="button" onClick="debugPause()" value="Resume" id="pauseButton"/>
-<input type="button" onClick="setTimeoutVariable()" value="Set Debug Timeout (ms)"/>
+<body  onload="getJob()">
+<input type="button" onClick="debugPause()" value="Pause" id="pauseButton"/>
+<input type="button" onClick="setTimeoutVariable()" value="Set Time Interval (ms)"/>
 Limit: <input type="text" id="amount" />
 
 <div id="wrapper">

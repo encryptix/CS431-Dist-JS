@@ -18,16 +18,6 @@ public class Logger {
 			System.out.println(" ["+getTime()+" DEBUG @ "+location+"] "+message);
 	}
 	
-	public static void remote(String location,String level, String message){
-		if(level==null || level.equals("1")){
-			severe("REMOTE "+location,message);
-		}else if(level.equals("3")){
-			debug("REMOTE "+location,message);
-		}else{
-			info("REMOTE "+location,message);
-		}
-	}
-	
 	public static String getTime(){
 		Calendar c = Calendar.getInstance();
 		int hour = c.get(Calendar.HOUR_OF_DAY);

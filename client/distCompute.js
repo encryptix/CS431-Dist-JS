@@ -26,7 +26,7 @@ function debugPause(){
 		stopped=true;
 	}
 }
-
+Result:3
 function setTimeoutVariable(){
 	timeDebug = document.getElementById("amount").value;
 	log("setTimeout: timeDebug is now : "+timeDebug);
@@ -34,13 +34,17 @@ function setTimeoutVariable(){
 
 function recieveJob(fnJSON){
 	log("Recieve Job: "+fnJSON);
-	var jsonObj = JSON.parse(fnJSON);
-	if(jsonObj=="2"){
-		//error stuff here
+	if(fnJSON=="no_job"){
+		log("no more jobs");
+	}else{
+		var jsonObj = JSON.parse(fnJSON);
+		if(jsonObj=="2"){
+			//error stuff here
+		}
+		jobID = jsonObj.jobID;
+		job = jsonObj.job;
+		setTimeout ( getData, 100 );
 	}
-	jobID = jsonObj.jobID;
-	job = jsonObj.job;
-	setTimeout ( getData, 100 );
 }
 
 function recieveData(dataJSON){
@@ -48,7 +52,7 @@ function recieveData(dataJSON){
 		log("Recieve Data: "+dataJSON);
 		
 		if(dataJSON=="No_More"){
-			alert("no more data");
+			log("no more data");
 			setTimeout ( getJob, timeDebug );
 			
 		}else{
@@ -80,7 +84,6 @@ function runJob(){
 	if(job!=null){
 		if(data!=null){
 			//Run the Job
-			//wtf do i do when ' is sent? : S why does it need them		
 			var runnableFunc = eval( '(' + job + ')');
 			result = runnableFunc(data);
 			sendResult();
