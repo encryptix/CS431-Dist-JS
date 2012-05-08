@@ -1,32 +1,64 @@
-	/*
-	 * Give out a job - > give each job an id
-	 * Give each piece of work a job_id, piece_id (each job a table?)
-	 * When a piece of work is given out , timestamp it .. allow 2 minutes...
-	 * When result comes back check that it is within the 2 minutes and if so save
-	 * This should also give out another piece of work
-	 * 
-	 * 
-	 * Upon First load is when a job is selected -> WHen units of work are done, give more units
-	 * 
-	 * for units select the closest one near the top which has not been given out
-	 * 		[How do I tell the difference between one solved, and then the 2nd answer]
-	 * 
-	 * when selecting work I return the results with id
-	 * so i pick a job where the id is > than the one returned
-	 * this ensures i dont get the same job twice
-	 * 
-	 */
+Distributed Framework For Running Jobs In Javascript
+
+INSTALL
+============================================================================
+Requirements: Tomcat, java6 , mysql server.
+Optional: Ant
+
+Install (Do Steps 1,2,3,6,7 (ant installed) OR 1,4,5,6,7 (ant not installed)): 
+1. Setup a tomcat and mysql server.
+2. In the webapps folder of tomcat create a new folder called distSystem
+3. In the root folder of the project run ./install.sh param1
+	Where param1 is the path to tomcat e.g. /usr/share/tomcat7/
+	(Warning: The install script will stop/start tomcat)
+4. Download the zip file containing a compiled version (build_XX.zip)
+5. Extract the zip file into a folder in webapps
+6. In the root project folder run the following commands:
+	6.1 mysql -u root -p < database.sql
+	6.2 mysql -u root -p < jobs/input_jobOne.sql
+	6.3 mysql -u root -p < jobs/input_jobTwo.sql
+	
+	(6.2/6.3 will take some time to complete)
+	
+7. In your browser visit localhost:8080/<folderNameInWebapps>
+
+Notes: the command ant package will recompile the project
+Tested in google-chrome &  chromium
+
+Running Demo:
+Inside the college network the project is running on https://149.157.243.77:8080/concepts/ (Self signed cert)
 
 
-String getContentFrom = request.getParameter("site");
-if(!hasContent(getContentFrom)){
-	//setup some sort code
-	out.print("Error no site specified");
-	return;
-}
+DESCRIPTION
+============================================================================
+This distributed processing system is implemented in java/jsp.
+The server is event driven and responds to requests coming in from the interface layer (jsp)
+This interacts with a mysql to return jobs/data while recieving results.
 
-String actionOnServer = request.getParameter("action");
-if(!hasContent(actionOnServer)){
-	out.print("Error no action");
-	return;
-}
+Each new job is added into the JOB table.
+	After this a DATA_<JOBID> table and a RESULT_<JOBID> is created for the job. These must contain certail fields.
+	These fields can be seen in sample.sql
+	
+When a server first loads it creates a list of jobs in memory.
+	When a request comes in for a job a counter is incremented (this counter can wrap around)
+	So each request sends a different job. This ensures that each job gets a fair amount of processing.
+	
+	Each job stores a list of data to be sent and when a request comes in a data element is send & removed from the list.
+	Storing the data in a list reduces the amount of database activity and allows the app to run multiple instances.
+	
+	
+	When this list becomes empty a request is sent to the database for X more jobs
+	and a process is also run to ensure conistancy of the database (data that was sent but no result recieved are reset)
+	These calls are synchronisied to prevent concurrency issues.
+	
+	When a result is returned a check is performed to see if it is already in the database.
+	If it is not then the result is added to the DB, if it is already in the database then the result is checked.
+		If the results are equal then the data is marked as solved, otherwise it is reset to be sent again.
+		
+		
+	As well as being a distributed javascript processor framework (solving data in JS and then sending the results back to the server)
+	
+	The server can run multiple instances at the same time and from different places.
+	
+	If the database is stored on a cloud platform then the server side can scale effectively as the number of
+	requests increase.

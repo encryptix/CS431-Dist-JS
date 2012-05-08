@@ -2,7 +2,7 @@
 server="$@"
 
 serverBin=$server"bin/"
-serverApp=$server"webapps/concepts/"
+serverApp=$server"webapps/distSystem/"
 currentDir=`pwd`
 echo $currentDir
 echo $server
