@@ -120,7 +120,7 @@ function ajax(callbackfun,params){
 			}
 		}
 	}
-	xmlHttp.open("POST","outsideContent.jsp",true);
+	xmlHttp.open("POST","interface.jsp",true);
 	xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	xmlHttp.send(action);
 }
